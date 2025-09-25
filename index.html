@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max - Mi Mascota</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-section {
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .pet-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #fff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .pet-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .pet-name {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .pet-subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .info-section {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 4px solid #3498db;
+        }
+
+        .info-card h3 {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-card p {
+            color: #34495e;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .description {
+            background: #ecf0f1;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .description p {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+
+        .contact-section {
+            background: #e74c3c;
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .emergency-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+        }
+
+        .phone-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            letter-spacing: 2px;
+        }
+
+        .contact-note {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .hero-section {
+                padding: 2rem 1rem;
+            }
+
+            .pet-photo {
+                width: 200px;
+                height: 200px;
+            }
+
+            .pet-name {
+                font-size: 2.5rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .info-section, .contact-section {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pet-name {
+                font-size: 2rem;
+            }
+
+            .pet-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .contact-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .phone-number {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Animaciones suaves */
+        .info-card, .hero-section, .info-section, .contact-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sección Principal -->
+        <section class="hero-section">
+            <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Max - Mi mascota" class="pet-photo">
+            <h1 class="pet-name">Max</h1>
+            <p class="pet-subtitle">El compañero más fiel y cariñoso</p>
+        </section>
+
+        <!-- Información de la Mascota -->
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Raza</h3>
+                    <p>Golden Retriever</p>
+                </div>
+                <div class="info-card">
+                    <h3>Edad</h3>
+                    <p>3 años</p>
+                </div>
+                <div class="info-card">
+                    <h3>Peso</h3>
+                    <p>28 kg</p>
+                </div>
+                <div class="info-card">
+                    <h3>Alimentación</h3>
+                    <p>Perrarina Dog Chow</p>
+                </div>
+            </div>
+
+            <div class="description">
+                <p>Max es un Golden Retriever de 3 años, lleno de energía y amor. Le encanta jugar en el parque, nadar y pasar tiempo con la familia. Es muy sociable con otros perros y niños. Su alimentación consiste en perrarina Dog Chow, que le proporciona todos los nutrientes necesarios para mantenerse saludable y activo.</p>
+            </div>
+        </section>
+
+        <!-- Información de Contacto de Emergencia -->
+        <section class="contact-section">
+            <h2>🚨 Contacto de Emergencia</h2>
+            <p>En caso de emergencia o si encuentras a Max perdido, por favor contacta inmediatamente:</p>
+            
+            <div class="emergency-info">
+                <div class="phone-number">📞 +58 414 123 4567</div>
+                <p><strong>Propietario:</strong> María González</p>
+            </div>
+
+            <p class="contact-note">
+                Max lleva collar con placa identificativa. Es muy amigable pero puede estar asustado si está perdido.
+            </p>
+        </section>
+    </div>
+</body>
+</html> 
